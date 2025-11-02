@@ -1,3 +1,11 @@
+"""
+Simple Flask API application.
+
+This module provides a basic Flask web application with health check functionality.
+It responds to HTTP requests on the root endpoint and provides a health check endpoint
+for monitoring purposes.
+"""
+
 import os
 from flask import Flask
 
