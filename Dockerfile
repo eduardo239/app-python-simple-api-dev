@@ -8,4 +8,4 @@ COPY . ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 2 --timeout 0 main:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 4 --timeout 30 --keep-alive 2 --max-requests 1000 --max-requests-jitter 100 main:app
