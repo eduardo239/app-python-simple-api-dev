@@ -8,9 +8,14 @@ def hello_world():
     name = os.environ.get("NAME", "World")
     return f"Hello, {name}!"
 
+@app.route("/health")
+def health_check():
+    return {"status": "healthy", "port": os.environ.get("PORT", 8080)}
+
 if __name__ == "__main__":
+    # For local development only
     app.run(
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 8080)),
-        debug=True
+        debug=False
     )
